@@ -18,10 +18,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="main/css/main.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/main/css/main.css}">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/2ea346856f.js"></script>
+    <!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />-->
+    <script th:src="@{https://kit.fontawesome.com/2ea346856f.js}"></script>
   </head>
   
   <body class="app sidebar-mini rtl">
@@ -73,7 +74,6 @@
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Compras</a></li>
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Stock</a></li>
-            <li><a class="treeview-item" href="lista_proveedor"><i class="icon fa fa-circle-o"></i>Proveedor</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">CAJA</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -105,95 +105,59 @@
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="principio">Inicio</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/principio}">Inicio</a></li>
         </ul>
       </div>
 <!--       fin de la cabecera  -->
 
-      <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
-            <div class="info">
-              <h4>Clientes</h4>
-              <p><b>5</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small info coloured-icon"><i class="icon fas fa-chart-bar fa-3x"></i>
-            <div class="info">
-              <h4>Artículos</h4>
-              <p><b>25</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
-            <div class="info">
-              <h4>Ventas</h4>
-              <p><b>100</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
-            <div class="info">
-              <h4>Compras</h4>
-              <p><b>50</b></p>
-            </div>
-          </div>
-        </div>
-      </div>
-<!--       Inicio de los cuadros grandes  -->
-      <div class="row">
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Biblias</h3>
-            <div class="embed-responsive">
-             <img alt="cambiar de imagen" src="main/img/biblio.jpg" style="width: 85%;">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Pensando en los niños y su bienestar</h3>
-            <div class="embed-responsive">
-              <img alt="siguiente" src="main/img/ninos.jpg">
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Misión</h3>
-            <ul>
-              <li>Brindar una atención de calidad a sus clientes</li>
-              <li>Siempre sonreir al cliente</li>
-              <li>Tener más tiendas ramas en otras partes del Perú</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Visión</h3>
-            <p>Ser líder en la difusion de materiales educativos y fomentar una cultura de desarrollo sano en los niños.</p>
-            </div>
-        </div>
-      </div>
+      <div class="container" id="container-content" style="color: black;">
+			<header style="width: 100%;">
+				<h4>Agregar Usuarios</h4>
+			</header>
+	<div class="row">
+	<div class="col-md-6" >
+	<input type="text" class="form-control" id="us" placeholder="usuario" style="background-color:#1abc9c; border-radius:6px; height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	<input type="password" class="form-control" id="pass" placeholder="contraseña" style="background-color:#1abc9c; border-radius:6px; height: 45px;font-weight: bold;color: #fff; ">
+	<hr>
+	<input type="number" class="form-control" id="num" placeholder="estado" style="background-color:#1abc9c; border-radius:6px;  height: 45px;font-weight: bold; color: #fff;">
+	<hr>
+	</div>
+
+	 <div class="col-md-6">
+	<div class="form-group" style="color: #222f3e; font-weight: bold;">
+			<select class="form-control" id="idpersona_u" style="background-color: #1abc9c; border-radius:6px; height: 45px;font-weight: bold;">
+			 <option selected value="0"> Seleccione persona</option>
+			
+			</select>
+		</div>
+		<div class="form-group" style="margin-top: 120px; margin-left: 100px;">
+		<input type="button" class="btn btn-success" onclick="guardar_u()" value="Enviar Datos" style="font-weight: bold;">
+		<a class="btn btn-danger" onclick="guardar_u()"; style="color: #fff; font-weight: bold;" >Enviar</a>
+		</div>
+		
+	</div> 
+	</div>
+			
+			
+						
+
+		
+		</div>
     </div>
 <!--     fin de las etiquetas -->
 
     <!-- Essential javascripts for application to work-->
-    <script src="main/js/jquery-3.2.1.min.js"></script>
-    <script src="main/js/popper.min.js"></script>
-    <script src="main/js/bootstrap.min.js"></script>
-    <script src="main/js/main.js"></script>
+   <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>-->
+    <script th:src="@{/main/js/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/main/js/popper.min.js}"></script>
+    <script th:src="@{/main/js/bootstrap.min.js}"></script>
+    <script th:src="@{/main/js/main.js}"></script>
+    <script th:src="@{/js/usuario_add.js}"></script>
     <!-- The javascript plugin to display page loading on top-->
-    <script src="main/js/plugins/pace.min.js"></script>
+    <script th:src="@{/main/js/plugins/pace.min.js}"></script>
     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="main/js/plugins/chart.js"></script>
-    
+    <script type="text/javascript" th:src="@{/main/js/plugins/chart.js}"></script>
+   
   </body>
 </html>
