@@ -97,7 +97,7 @@
     </aside>
     
 <!--     	INICIO DEL CONTENIDO PRINCIPAL - Cabecera -->
-    <div class="app-content">
+    <div class="app-content" id="cuerpo_imprimir">
       <div class="app-title">
         <div>
           <h1><i class="fas fa-tachometer-alt"></i> INICIO</h1>
@@ -108,9 +108,13 @@
           <li class="breadcrumb-item"><a href="principio">Inicio</a></li>
         </ul>
       </div>
+      <input type="button" class="btn btn-success" onclick="imprimir_all()" value="imprimir all">
+      <input type="button" class="btn btn-success" onclick="imprimir_imagenes()" value="imprimir imagenes">
+      <input type="button" class="btn btn-success" onclick="imprimir_imagen()" value="imprimir imagen">
+      
 <!--       fin de la cabecera  -->
 
-      <div class="row">
+      <div class="row" id="fila_inicio">
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
@@ -194,6 +198,19 @@
     <script src="main/js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <script type="text/javascript" src="main/js/plugins/chart.js"></script>
+    <script src="js/printThis.js"></script>
+    <script>
+    var options = {
+    		importCSS: true,
+    		loadCSS: "[https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css]",
+            header:"<h1 class=' id='cabecera_print'>Imprimiendo con estilo</h1>",
+//             base: true
+    }
+    function imprimir_all(){
+    	 $('#fila_inicio').printThis(options);
+    }
+   
     
+    </script>
   </body>
 </html>

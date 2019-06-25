@@ -9,12 +9,9 @@ function guardar_u(){
 	var user = $("#us").val();
 	var pass= $("#pass").val();
 	var est= $("#num").val();
-	alert("soy el idpersona"+idp);
-	alert("soy el usuario"+user);
-	alert("soy el password"+pass);
-	alert("soy el estado"+est);
 	if (idp==0) {
 		alert("Falta seleccionar una persona");
+		$("#mensaje_falta_persona").modal("show");
 	} else {
 		$.post('/Guardar_Usuario_Us',{
 			user:user,
